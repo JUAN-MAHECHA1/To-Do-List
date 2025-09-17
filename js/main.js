@@ -1,4 +1,28 @@
+// Creamos las constantes globales para los elemetos principales 
 const input = document.getElementById('taskInput');
 const addBtn = document.getElementById('addTaskBtn');
 const toDoList = document.getElementById('cont-to-do-list');
 const completedList = document.getElementById('cont-completed-list');
+
+// Creamos la funcion que nos permite crear una nueva tarea
+function createToDoItem(textoItem) {
+    // creamos el nodo o elemento padre o contenedor
+    const item = document.createElement('div');
+    // Toda etiqueta que vamos a crear es apartir de la maqueta html pre-existente
+    item.classList.add('item-to-do');
+    // creamos el nodo hijo del input y le agregamos el type checkbox 
+    const checkbox = document.createElement('input');
+    checkbox.type = "checkbox";
+    // Creamos el siguiente nodo hijo parrafo a este parrafo le asigno el valor del argumento de la función es decir lo que escribe el usuario en el campo
+    const p = document.createElement('p');
+    p.textContent = textoItem;
+    // Creamos el ultimo nodo hijo, el boton eliminar
+    const deleteBtn = document.createElement('button');
+    deleteBtn.innerHTML = ('i class="bi bi-x-square');
+    // Ensamblamos dentro del nodo padre sus nodos hijos, es decir la estructura de la tarea 
+    item.appendChild(checkbox);
+    item.appendChild(p);
+    item.appendChild(deleteBtn);
+    // utilizamos el return para retornar o dar repuesta del elemnto creado ya que lo utilizaremos mas adelente
+    return item;
+}
