@@ -18,7 +18,7 @@ function createToDoItem(textoItem) {
     p.textContent = textoItem;
     // Creamos el ultimo nodo hijo, el boton eliminar
     const deleteBtn = document.createElement('button');
-    deleteBtn.innerHTML = ('i class="bi bi-x-square');
+    deleteBtn.innerHTML = ('<i class="bi bi-x-square"></i>');
     // Ensamblamos dentro del nodo padre sus nodos hijos, es decir la estructura de la tarea 
     item.appendChild(checkbox);
     item.appendChild(p);
@@ -26,3 +26,15 @@ function createToDoItem(textoItem) {
     // utilizamos el return para retornar o dar repuesta del elemnto creado ya que lo utilizaremos mas adelente
     return item;
 }
+// detectamos sobre el btn a agregar  el click o el evento de escucha o listen 
+// para que apartir de este evento se agregue la tarea dentro del contenedor cont-to-do-list
+addBtn.addEventListener('click', ()=>{
+    const textoItem = input.value.trim();
+    if (textoItem == "") {
+        alert("no se puede crear una tarea vacia");
+    } else {
+        const newItem = createToDoItem(textoItem);
+        toDoList.appendChild(newItem);
+        input.value="";
+    }
+});
