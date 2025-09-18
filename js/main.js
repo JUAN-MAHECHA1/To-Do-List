@@ -63,9 +63,16 @@ btnStyle.addEventListener('click', () => {
 
     if (linkCss.getAttribute('href') === 'css/style.css') {
         linkCss.setAttribute('href', 'css/style-dia.css');
-        btnStyle.textContent='Modo dia';
+        btnStyle.textContent = 'Modo dia';
     } else {
         linkCss.setAttribute('href', 'css/style.css');
-        btnStyle.textContent='Modo noche';
+        btnStyle.textContent = 'Modo noche';
+    }
+});
+// Detectar la tecla "Enter" en el input
+input.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {  // 1. Validamos que sea Enter
+        event.preventDefault();   // 2. Evitamos que se recargue la página por el formulario
+        addBtn.click();           // 3. Simulamos un click en el botón "+"
     }
 });
