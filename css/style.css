@@ -34,16 +34,31 @@ h1, h2 {
     gap: 10px;
     margin-bottom: 20px;
 }
-#equis{
-    padding: 6px;
-    background: #ff0000;
+#cont-to-do-list button,
+#cont-completed-list button {
+    width: 35px;              
+    height: 35px;           
+    display: flex;            
+    align-items: center;
+    justify-content: center;
+    background: #ff4d4d;    
     border: none;
-    border-radius: 10px;
-    font-size: 14px;
-    font-weight: bold;
+    border-radius: 50%;       
+    font-size: 16px;         
     cursor: pointer;
     transition: 0.3s;
+    color: #fff;             
+    margin-left: 10px;        
+    box-shadow: 0 4px 10px rgba(255, 77, 77, 0.3);
 }
+
+#cont-to-do-list button:hover,
+#cont-completed-list button:hover {
+    background: #ff1a1a;
+    transform: scale(1.1);  
+    box-shadow: 0 6px 14px rgba(255, 26, 26, 0.5);
+}
+
 
 #taskInput {
     flex: 1;

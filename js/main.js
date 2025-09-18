@@ -5,6 +5,7 @@ const toDoList = document.getElementById('cont-to-do-list');
 const completedList = document.getElementById('cont-completed-list');
 
 // Creamos la funcion que nos permite crear una nueva tarea
+// Esta función crea la estructura HTML y la deja en un limbo aun no la inserta en la pagina para luego ser agregada dentro de appenChild
 function createToDoItem(textoItem) {
     // creamos el nodo o elemento padre o contenedor
     const item = document.createElement('div');
@@ -28,13 +29,31 @@ function createToDoItem(textoItem) {
 }
 // detectamos sobre el btn a agregar  el click o el evento de escucha o listen 
 // para que apartir de este evento se agregue la tarea dentro del contenedor cont-to-do-list
-addBtn.addEventListener('click', ()=>{
+addBtn.addEventListener('click', () => {
     const textoItem = input.value.trim();
     if (textoItem == "") {
-        alert("no se puede crear una tarea vacia");
+        alert("No se puede crear una tarea vacia");
     } else {
         const newItem = createToDoItem(textoItem);
         toDoList.appendChild(newItem);
-        input.value="";
+        input.value = "";
+        eventsToIthem(newItem);
     }
 });
+// La siguiente función nos permitira agregar el funcionamiento principal sobre las tareases decir marcar la tarea como completada o en dado caso eliminarla
+function eventsToIthem(item) {
+    // Utilizamos querySelector para capturar el input y el button que esta dentro del item
+    const checkbox = item.querySelector('input');
+    const deleteBtn = item.querySelector('button');
+    // Completar la tarea 
+    checkbox.addEventListener('change', ()=>{
+        if (checkbox.checked) {
+            completedList.appendChild(item);
+        } else {
+            toDoList.appendChild(item);
+        }
+    });
+    deleteBtn.addEventListener('click', ()=>{
+        item.remove();
+    });
+}
