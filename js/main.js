@@ -46,14 +46,26 @@ function eventsToIthem(item) {
     const checkbox = item.querySelector('input');
     const deleteBtn = item.querySelector('button');
     // Completar la tarea 
-    checkbox.addEventListener('change', ()=>{
+    checkbox.addEventListener('change', () => {
         if (checkbox.checked) {
             completedList.appendChild(item);
         } else {
             toDoList.appendChild(item);
         }
     });
-    deleteBtn.addEventListener('click', ()=>{
+    deleteBtn.addEventListener('click', () => {
         item.remove();
     });
 }
+const btnStyle = document.getElementById('change-style');
+btnStyle.addEventListener('click', () => {
+    const linkCss = document.getElementById('enlace-estilos');
+
+    if (linkCss.getAttribute('href') === 'css/style.css') {
+        linkCss.setAttribute('href', 'css/style-dia.css');
+        btnStyle.textContent='Modo dia';
+    } else {
+        linkCss.setAttribute('href', 'css/style.css');
+        btnStyle.textContent='Modo noche';
+    }
+});
