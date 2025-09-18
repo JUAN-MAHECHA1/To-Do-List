@@ -60,6 +60,10 @@ h1, h2 {
     transform: scale(1.1);  
     box-shadow: 0 6px 14px rgba(230, 57, 70, 0.3);
 }
+#cont-to-do-list p {
+    word-break: break-word;
+}
+
 
 #taskInput {
     flex: 1;
@@ -124,6 +128,7 @@ h1, h2 {
 #cont-completed-list .item-to-do p {
     opacity: 0.6;
     text-decoration: line-through;
+    word-break: break-word;
 }
 #change-style{
     position: absolute;
